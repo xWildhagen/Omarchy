@@ -15,8 +15,8 @@ DOTFILES=(
 
 link_dotfile() {
     local dotfile="$1"
-    local home_path="$HOME/$dotfile"
-    local omarchy_path="$HOME/omarchy/$dotfile"
+    local home_path="$HOME/.config/$dotfile"
+    local omarchy_path="$HOME/omarchy/dotfile/$dotfile"
 
     ln -sf "$omarchy_path" "$home_path"
     echo "Linked: $home_path → $omarchy_path"
