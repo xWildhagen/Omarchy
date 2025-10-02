@@ -54,14 +54,9 @@ remove_app() {
     local path="$HOME/.local/share/applications"
     local app="$1"
     
-    local matches
-    matches=$(find "$path" -maxdepth 1 -type f -iname "*${app// /}*.desktop")
-    
-    if [[ -n "$matches" ]]; then
-        echo "$matches" | while read -r file; do
-            rm -f "$file"
-            echo "Removed: $file"
-        done
+    if grep -IlZ --include='*.desktop' -R "^Name=${app}$" "$path" | grep -q .; then
+        grep -IlZ --include='*.desktop' -R "^Name=${app}$" "$path" | xargs -0 rm -f
+        echo "Removed: $app"
     else
         echo "Missing: $app"
     fi
