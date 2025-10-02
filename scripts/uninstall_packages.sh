@@ -38,7 +38,7 @@ remove_package() {
     fi
 }
 
-remove_from_app_launcher() {
+remove_from_launcher() {
     rm -r /home/wildhagen/.local/share/applications/Docker.desktop
 }
 
@@ -50,7 +50,7 @@ for package in "${PACKAGES[@]}"; do
     remove_package "$package"
 done
 
-remove_from_app_launcher
+remove_from_launcher
 
 for webapp in "${WEBAPPS[@]}"; do
     remove_webapp "$webapp"
