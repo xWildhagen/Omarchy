@@ -19,11 +19,7 @@ PACKAGES=(
     "xournalpp"
 )
 
-LAUNCHER_APPS=(
-    "/home/wildhagen/.local/share/applications/Docker.desktop"
-)
-
-WEBAPPS=(
+APPS=(
     "Basecamp"
     "ChatGPT"
     "Discord"
@@ -36,6 +32,7 @@ WEBAPPS=(
     "WhatsApp"
     "X"
     "YouTube"
+    "/home/wildhagen/.local/share/applications/Docker.desktop"
 )
 
 remove_package() {
@@ -53,27 +50,19 @@ remove_package() {
     fi
 }
 
-remove_from_launcher() {
-    local launcher_app="$1"
-    if [[ -f "$launcher_app" ]]; then
-        rm -r "$launcher_app"
+remove_app() {
+    local app="$1"
+    if [[ -f "$app" ]]; then
+        rm -r "$app"
     else
-        echo "Missing: $launcher_app"
+        echo "Missing: $app"
     fi
-}
-
-remove_webapp() {
-    return
 }
 
 for package in "${PACKAGES[@]}"; do
     remove_package "$package"
 done
 
-for launcher_app in "${LAUNCHER_APPS[@]}"; do
-    remove_from_launcher "$launcher_app"
-done
-
-for webapp in "${WEBAPPS[@]}"; do
-    remove_webapp "$webapp"
+for app in "${APPS[@]}"; do
+    remove_app "$app"
 done
