@@ -38,6 +38,7 @@ APPS=(
 
 remove_package() {
     local package="$1"
+
     if pacman -Qi -- "$package" &>/dev/null; then
         if command -v yay &>/dev/null; then
             echo "Removing (yay): $package"
@@ -52,8 +53,8 @@ remove_package() {
 }
 
 remove_app() {
-    local path="$HOME/.local/share/applications"
     local app="$1"
+    local path="$HOME/.local/share/applications"
     
     if grep -IlZ --include='*.desktop' -R "^Name=${app}$" "$path" | grep -q .; then
         grep -IlZ --include='*.desktop' -R "^Name=${app}$" "$path" | xargs -0 rm -f
