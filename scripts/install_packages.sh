@@ -9,7 +9,7 @@ YAY_PACKAGES=(
 )
 
 sudo pacman -Syu --noconfirm
-
 sudo pacman -S --noconfirm --needed "${PACMAN_PACKAGES[@]}"
 
-yay -S --noconfirm --needed "${YAY_PACKAGES[@]}"
+yay -Syu --noconfirm
+yay -S --noconfirm --needed "${YAY_PACKAGES[@]}
