@@ -3,7 +3,11 @@
 PACKAGES=(
     "1password-beta"
     "1password-cli"
+    "docker"
+    "docker-buildx"
+    "docker-compose"
     "kdenlive"
+    "lazydocker"
     "libreoffice-fresh"
     "localsend-bin"
     "obs-studio"
@@ -11,12 +15,8 @@ PACKAGES=(
     "omarchy-chromium"
     "signal-desktop"
     "spotify"
-    "xournalpp"
-    "docker"
-    "docker-buildx"
-    "docker-compose"
-    "lazydocker"
     "ufw-docker"
+    "xournalpp"
 )
 
 LAUNCHER_APPS=(
@@ -24,7 +24,18 @@ LAUNCHER_APPS=(
 )
 
 WEBAPPS=(
-    ""
+    "Basecamp"
+    "ChatGPT"
+    "Discord"
+    "Figma"
+    "GitHub"
+    "Google Contacts"
+    "Google Messages"
+    "Google Photos"
+    "HEY"
+    "WhatsApp"
+    "X"
+    "YouTube"
 )
 
 remove_package() {
