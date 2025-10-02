@@ -8,6 +8,7 @@ PACKAGES=(
     "localsend-bin"
     "obs-studio"
     "obsidian"
+    "omarchy-chromium"
     "signal-desktop"
     "spotify"
     "xournalpp"
@@ -16,7 +17,10 @@ PACKAGES=(
     "docker-compose"
     "lazydocker"
     "ufw-docker"
-    "omarchy-chromium"
+)
+
+WEBAPPS=(
+    ""
 )
 
 remove_package() {
@@ -30,10 +34,24 @@ remove_package() {
             sudo pacman -Rns --noconfirm -- "$package"
         fi
     else
-        echo "Not installed: $package"
+        echo "Missing: $package"
     fi
+}
+
+remove_from_app_launcher() {
+    rm -r /home/wildhagen/.local/share/applications/Docker.desktop
+}
+
+remove_webapp() {
+
 }
 
 for package in "${PACKAGES[@]}"; do
     remove_package "$package"
+done
+
+remove_from_app_launcher
+
+for webapp in "${WEBAPPS[@]}"; do
+    remove_webapp "$webapp"
 done
