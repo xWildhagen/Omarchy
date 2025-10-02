@@ -19,6 +19,10 @@ PACKAGES=(
     "ufw-docker"
 )
 
+LAUNCHER_APPS=(
+    "/home/wildhagen/.local/share/applications/Docker.desktop"
+)
+
 WEBAPPS=(
     ""
 )
@@ -39,7 +43,8 @@ remove_package() {
 }
 
 remove_from_launcher() {
-    rm -r /home/wildhagen/.local/share/applications/Docker.desktop
+    local launcher_app="$1"
+    rm -r "$launcher_app"
 }
 
 remove_webapp() {
@@ -50,7 +55,9 @@ for package in "${PACKAGES[@]}"; do
     remove_package "$package"
 done
 
-remove_from_launcher
+for launcher_app in "${LAUNCHER_APPS[@]}"; do
+    remove_from_launcher "$launcher_app"
+done
 
 for webapp in "${WEBAPPS[@]}"; do
     remove_webapp "$webapp"
