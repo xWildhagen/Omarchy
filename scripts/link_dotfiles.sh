@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES=(
-    ""
+    ".bashrc"
     ".config/hypr/autostart.conf"
     ".config/hypr/bindings.conf"
     ".config/hypr/envs.conf"
