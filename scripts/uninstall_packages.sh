@@ -23,6 +23,7 @@ APPS=(
     "Basecamp"
     "ChatGPT"
     "Discord"
+    "Docker"
     "Figma"
     "GitHub"
     "Google Contacts"
@@ -32,7 +33,6 @@ APPS=(
     "WhatsApp"
     "X"
     "YouTube"
-    "/home/wildhagen/.local/share/applications/Docker.desktop"
 )
 
 remove_package() {
@@ -51,9 +51,17 @@ remove_package() {
 }
 
 remove_app() {
+    local path="$HOME/.local/share/applications"
     local app="$1"
-    if [[ -f "$app" ]]; then
-        rm -r "$app"
+    
+    local matches
+    matches=$(find "$path" -maxdepth 1 -type f -iname "*${app// /}*.desktop")
+    
+    if [[ -n "$matches" ]]; then
+        echo "$matches" | while read -r file; do
+            rm -f "$file"
+            echo "Removed: $file"
+        done
     else
         echo "Missing: $app"
     fi
