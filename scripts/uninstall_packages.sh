@@ -10,4 +10,4 @@ YAY_PACKAGES=(
 
 sudo pacman -Rns --noconfirm "${PACMAN_PACKAGES[@]}"
 
-yay -Rns --noconfirm "${YAY_PACKAGES[@]}
+yay -Rns --noconfirm "${YAY_PACKAGES[@]}"
