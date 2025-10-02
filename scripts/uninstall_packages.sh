@@ -44,7 +44,11 @@ remove_package() {
 
 remove_from_launcher() {
     local launcher_app="$1"
-    rm -r "$launcher_app"
+    if [[ -f "$launcher_app" ]]; then
+        rm -r "$launcher_app"
+    else
+        echo "Missing: $launcher_app"
+    fi
 }
 
 remove_webapp() {
