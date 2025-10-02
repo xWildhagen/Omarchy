@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACMAN_PACKAGES=(
+PACKAGES=(
     "1password-beta"
     "1password-cli"
     "kdenlive"
@@ -14,12 +14,24 @@ PACMAN_PACKAGES=(
     "docker"
     "docker-buildx"
     "docker-compose"
-)
-
-YAY_PACKAGES=(
     "omarchy-chromium"
 )
 
-sudo pacman -Rns --noconfirm "${PACMAN_PACKAGES[@]}"
+remove_package() {
+    local package="$1"
+    if pacman -Qi -- "$package" &>/dev/null; then
+        if command -v yay &>/dev/null; then
+            echo "Removing (yay): $package"
+            yay -Rns --noconfirm -- "$package"
+        else
+            echo "Removing (pacman): $package"
+            sudo pacman -Rns --noconfirm -- "$package"
+        fi
+    else
+        echo "Not installed: $package"
+    fi
+}
 
-yay -Rns --noconfirm "${YAY_PACKAGES[@]}"
+for package in "${PACKAGES[@]}"; do
+    remove_package "$package"
+done
