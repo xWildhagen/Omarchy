@@ -6,7 +6,7 @@ PACMAN_PACKAGES=(
 )
 
 YAY_PACKAGES=(
-    ""
+    "omarchy-chromium"
 )
 
 sudo pacman -Rns --noconfirm "${PACMAN_PACKAGES[@]}"
