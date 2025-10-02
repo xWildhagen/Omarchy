@@ -14,6 +14,8 @@ PACKAGES=(
     "docker"
     "docker-buildx"
     "docker-compose"
+    "lazydocker"
+    "ufw-docker"
     "omarchy-chromium"
 )
 
