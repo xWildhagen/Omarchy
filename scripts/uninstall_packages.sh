@@ -43,7 +43,7 @@ remove_from_app_launcher() {
 }
 
 remove_webapp() {
-
+    return
 }
 
 for package in "${PACKAGES[@]}"; do
