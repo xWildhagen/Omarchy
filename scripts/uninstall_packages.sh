@@ -3,6 +3,17 @@
 PACMAN_PACKAGES=(
     "1password-beta"
     "1password-cli"
+    "kdenlive"
+    "libreoffice-fresh"
+    "localsend-bin"
+    "obs-studio"
+    "obsidian"
+    "signal-desktop"
+    "spotify"
+    "xournalpp"
+    "docker"
+    "docker-buildx"
+    "docker-compose"
 )
 
 YAY_PACKAGES=(
