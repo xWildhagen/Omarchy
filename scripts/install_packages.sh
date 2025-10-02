@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACMAN_PACKAGEDS=(
+PACMAN_PACKAGES=(
     "visual-studio-code-bin"
 )
 
