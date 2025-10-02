@@ -33,6 +33,7 @@ APPS=(
     "WhatsApp"
     "X"
     "YouTube"
+    "Zoom"
 )
 
 remove_package() {
